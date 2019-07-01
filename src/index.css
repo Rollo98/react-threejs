@@ -1,7 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Megrim&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Exo&display=swap");
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  overflow: hidden;
 }
 .container {
   width: 100vw;
@@ -10,4 +15,26 @@ body {
 #WebGL-output {
   height: 100vh;
   width: 100vw;
+  position: absolute;
+}
+.overlay {
+  position: absolute;
+}
+.title {
+  font: 7rem "Poiret One", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  margin-top: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #fff;
+  position: absolute;
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 2s ease 1s;
+  opacity: 1;
+  text-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
 }
