@@ -7,8 +7,9 @@ body {
   padding: 0;
   font-family: sans-serif;
   overflow: hidden;
+  box-sizing: border-box;
 }
-.container {
+.wrapper {
   width: 100vw;
   height: 100vh;
 }
@@ -17,11 +18,11 @@ body {
   width: 100vw;
   position: absolute;
 }
-.overlay {
-  position: absolute;
-}
 .title {
-  font: 7rem "Poiret One", sans-serif;
+  /* transform: translateX(150%); */
+  font: 3rem "Poiret One", sans-serif;
+  letter-spacing: 0.6em;
+  margin-left: 1.5rem;
   height: 100vh;
   width: 100vw;
   margin-top: 0px !important;
@@ -37,4 +38,72 @@ body {
   transition: opacity 2s ease 1s;
   opacity: 1;
   text-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
+}
+.menu {
+  position: absolute;
+  /* height: 1000%; */
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* transform: translateX(-150%); */
+}
+.overlay {
+  color: white;
+  z-index: 100;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+.hamburger-button {
+  position: fixed;
+  top: 46.5%;
+  margin: 0 auto;
+  opacity: 0;
+  -webkit-animation: appear-left 3s; /* Safari 4.0 - 8.0 */
+  animation: appear-left 0.3s;
+  animation-fill-mode: forwards;
+}
+.section {
+  scroll-snap-align: center none;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  margin: auto;
+  width: 80vw;
+  padding-top: 30vh;
+  animation: appear-left 0.5s;
+}
+.section h3 {
+  animation: appear-right 0.5s;
+}
+
+@keyframes appear-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes appear-right {
+  from {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 800px) {
+  .hamburger-button {
+    top: 0;
+  }
+  .section {
+    width: 90%;
+    padding-top: 20vh;
+  }
 }

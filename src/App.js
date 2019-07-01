@@ -5,7 +5,7 @@ import Scene from "./Scene";
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="wrapper">
         <Scene />
       </div>
     );
