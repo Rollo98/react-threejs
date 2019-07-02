@@ -22,7 +22,7 @@ body {
   /* transform: translateX(150%); */
   font: 3rem "Poiret One", sans-serif;
   letter-spacing: 0.6em;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
   height: 100vh;
   width: 100vw;
   margin-top: 0px !important;
@@ -65,19 +65,57 @@ body {
   animation-fill-mode: forwards;
 }
 .section {
+  font: 3rem "Poiret One", sans-serif;
+  font-size: 2.5vh;
   scroll-snap-align: center none;
   height: 100vh;
   text-align: center;
   color: white;
   margin: auto;
-  width: 80vw;
-  padding-top: 30vh;
-  animation: appear-left 0.5s;
+  width: 50vw;
+  padding-top: 25vh;
+  -webkit-animation: appear-left 3s; /* Safari 4.0 - 8.0 */
+  animation: apear-left 0.3s;
 }
-.section h3 {
-  animation: appear-right 0.5s;
+.section p {
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-animation: appear-up 3s; /* Safari 4.0 - 8.0 */
+  animation: appear-up 2s;
 }
-
+.section h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
+  margin-bottom: 50px;
+  -webkit-animation: appear-down 3s; /* Safari 4.0 - 8.0 */
+  animation: appear-down 2s;
+}
+.section h1:before,
+.section h1:after {
+  content: "";
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0 20px 0 0;
+  flex: 1 0 20px;
+}
+.section h1:after {
+  margin: 0 0 0 20px;
+  border-top: 0px solid;
+}
+.section h1::before {
+  animation: title-line 3s;
+}
+@keyframes title-line {
+  from {
+    width: 0%;
+    border-top: 0px solid rgba(255, 255, 255, 0.2);
+  }
+  to {
+    border: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
 @keyframes appear-left {
   from {
     transform: translateX(-100%);
@@ -88,14 +126,29 @@ body {
     opacity: 1;
   }
 }
-@keyframes appear-right {
+@keyframes appear-up {
   from {
-    transform: translateX(200%);
+    transform: translateY(300%);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
+  }
+}
+@keyframes appear-down {
+  from {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .section {
+    width: 60%;
   }
 }
 @media screen and (max-width: 800px) {
@@ -103,7 +156,17 @@ body {
     top: 0;
   }
   .section {
-    width: 90%;
+    /* width: 90%; */
     padding-top: 20vh;
+  }
+}
+@media screen and (max-width: 650px) {
+  .section {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .section {
+    padding-top: 10vh;
   }
 }
