@@ -19,7 +19,6 @@ body {
   position: absolute;
 }
 .title {
-  /* transform: translateX(150%); */
   font: 3rem "Poiret One", sans-serif;
   letter-spacing: 0.5em;
   margin-left: 1rem;
@@ -38,17 +37,11 @@ body {
   transition: opacity 2s ease 1s;
   opacity: 1;
   text-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
+  animation: title 1s;
 }
 .menu {
-  position: absolute;
-  /* height: 1000%; */
-  width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
-  /* transform: translateX(-150%); */
-}
-.overlay {
   color: white;
-  z-index: 100;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -61,8 +54,8 @@ body {
   top: 46.5%;
   margin: 0 auto;
   opacity: 0;
-  -webkit-animation: appear-left 3s; /* Safari 4.0 - 8.0 */
-  animation: appear-left 0.3s;
+  -webkit-animation: appear-left 3s;
+  animation: appear-left 2s;
   animation-fill-mode: forwards;
 }
 .section {
@@ -75,12 +68,12 @@ body {
   margin: auto;
   width: 50vw;
   padding-top: 25vh;
-  -webkit-animation: appear-left 3s; /* Safari 4.0 - 8.0 */
+  -webkit-animation: appear-left 3s;
   animation: apear-left 0.3s;
 }
 .section p {
   color: rgba(255, 255, 255, 0.6);
-  -webkit-animation: appear-up 3s; /* Safari 4.0 - 8.0 */
+  -webkit-animation: appear-up 3s;
   animation: appear-up 2s;
 }
 .section h1 {
@@ -90,7 +83,7 @@ body {
   text-align: center;
   text-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
   margin-bottom: 50px;
-  -webkit-animation: appear-down 3s; /* Safari 4.0 - 8.0 */
+  -webkit-animation: appear-down 3s;
   animation: appear-down 2s;
 }
 .section h1:before,
@@ -105,8 +98,35 @@ body {
   border-top: 0px solid;
 }
 .section h1::before {
+  -webkit-animation: title-line 3s;
   animation: title-line 3s;
 }
+.credits {
+  font: 3rem "Poiret One", sans-serif;
+  font-size: 2.5vh;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 1vh;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
+  -webkit-animation: title 1s;
+  animation: title 1s;
+}
+.credits a,
+.credits a:hover {
+  color: white;
+  text-decoration: none;
+}
+@keyframes title {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes title-line {
   from {
     width: 0%;
@@ -157,7 +177,6 @@ body {
     top: 0;
   }
   .section {
-    /* width: 90%; */
     padding-top: 20vh;
   }
 }
@@ -166,8 +185,15 @@ body {
     width: 80%;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .section {
+    width: 60%;
+  }
+}
 @media screen and (max-width: 450px) {
   .section {
     padding-top: 20vh;
+    width: 70%;
   }
 }

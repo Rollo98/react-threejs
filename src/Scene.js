@@ -2,29 +2,17 @@ import "./index.css";
 import React, { Component } from "react";
 import * as THREE from "three";
 import Orbitcontrols from "three-orbitcontrols";
-import { HamburgerArrow } from "react-animated-burgers";
-import Popup from "./Popup";
 class Scene extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { showDetails: false };
-  }
   componentDidMount() {
     this.initThree();
   }
-  togglePopup = () => {
-    this.setState({ showDetails: !this.state.showDetails });
-  };
   initThree() {
     let camera, scene, renderer;
     // let group;
     let container = document.getElementById("WebGL-output");
     let width = container.clientWidth,
       height = container.clientHeight;
-    let windowHalfX = window.innerWidth / 2,
-      windowHalfY = window.innerHeight / 2;
     let orbitControls;
-    let composer, renderPass;
     let Shaders = {
       earth: {
         uniforms: {
@@ -70,15 +58,11 @@ class Scene extends Component {
       }
     };
     var shader, uniforms, material;
-    var mesh, atmosphere, point;
+    var mesh;
 
     let loadingScreen = {
       scene: new THREE.Scene(),
       camera: new THREE.PerspectiveCamera(60, width / height, 1, 2000)
-      // box: new THREE.Mesh(
-      //   new THREE.BoxGeometry(0.5, 0.5, 0.5),
-      //   new THREE.MeshBasicMaterial({ color: 0x4444ff })
-      // )
     };
 
     let loadingManager = null;
@@ -132,7 +116,6 @@ class Scene extends Component {
       scene.add(directionalLight);
 
       // Texture
-      let planetLoader = new THREE.TextureLoader(loadingManager);
       let backgroundLoader = new THREE.CubeTextureLoader(loadingManager);
       let planetTexture = require("./assets/imgs/planets/world.jpg");
       let backgroundTexture = require("./assets/imgs/planets/stars.jpg");
@@ -189,8 +172,6 @@ class Scene extends Component {
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(width, height);
       container.appendChild(renderer.domElement);
-
-      window.addEventListener("resize", onWindowResize, false);
     }
 
     function animate() {
@@ -207,39 +188,9 @@ class Scene extends Component {
       scene.rotation.y += 0.001;
       renderer.render(scene, camera);
     }
-    function onWindowResize() {
-      windowHalfX = window.innerWidth / 2;
-      windowHalfY = window.innerHeight / 2;
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    }
   }
   render() {
-    return (
-      <div id="WebGL-output">
-        <div className="overlay">
-          {this.state.showDetails ? (
-            <>
-              <Popup
-                showDetails={this.state.showDetails}
-                closePopup={() => this.togglePopup()}
-              />
-            </>
-          ) : (
-            <>
-              <h1 className="title text-center">Lorem ipsum</h1>
-              <HamburgerArrow
-                className="hamburger-button"
-                isActive={this.props.showDetails}
-                toggleButton={this.togglePopup}
-                barColor="white"
-              />
-            </>
-          )}
-        </div>
-      </div>
-    );
+    return <div id="WebGL-output" />;
   }
 }
 
