@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<title>How To Write Three.js Games</title>
+<xmp style="display:none;">
+# How To Write Three.js Games
+
+This pages is notes about how to do games with three.js.
+
+From [github issue #53](https://github.com/jeromeetienne/threex/issues/53)
+
+## How To Make Sounds
+
+In Short, use [Web Audio API](https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html). 
+You can use [WebAudiox](https://github.com/jeromeetienne/webaudiox) helpers if you want. It helps
+a for for best practices and sounds localisations. So when a monster on my left yells i want to 
+hear it on the left.
+
+## How To Do UI
+
+In Short, use the DOM itself for that. Dont recode it in canvas 2d or WebGL.
+You can look at [marbletable2](http://jeromeetienne.github.io/marbletable2/).
+
+
+## User Identification
+
+Nothings specific is provided. 
+Maybe good idea if you use external services for that, it avoid to redo the same thing
+over and over. Maybe [passport.js](http://passportjs.org/) is a good idea.
+
+## How to write a post processing extension
+
+There are a few already
+[threex.depthoffield](https://github.com/jeromeetienne/threex.depthoffield)
+[threex.coloradjust](https://github.com/jeromeetienne/threex.coloradjust)
+and
+[threex.badtvpproc](https://github.com/jeromeetienne/threex.badtvpproc)
+
+If you have to copy one, copy ```threex.badtvpproc```. It is the most modern one. 
+
+### Notes
+* try to provide a datgui extension to help fine tuning. 
+  Thus people can easily make it fit their own needs
+* for an effect of *blast*, the filenames will be 
+  * ```THREEx.BlastPasses``` for the passes to add ```THREE.EffectComposer```
+  * ```THREEx.BlastDatgui``` for the dat.gui
+  
+## the why of startwithwhy
+* when obama is talking to all the american, he is talking about games.
+  He is saying 'do more than playing game, make one'
+* three.js games is there to make game developement easier than ever
+* anybody can write games
+  * write them for the web. a open widely available plateform
+
+</xmp>
+<script src="strapdownjs/strapdown.js"></script>
+</html>
