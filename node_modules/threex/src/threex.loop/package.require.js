@@ -1,3 +1,0 @@
-define( [ './threex.loop',
-	], function(){
-});

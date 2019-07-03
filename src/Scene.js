@@ -228,7 +228,7 @@ class Scene extends Component {
             </>
           ) : (
             <>
-              <h1 className="title text-center">WEB DESIGN</h1>
+              <h1 className="title text-center">Lorem ipsum</h1>
               <HamburgerArrow
                 className="hamburger-button"
                 isActive={this.props.showDetails}
