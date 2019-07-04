@@ -1,6 +1,6 @@
 # ReactJS + ThreeJS 
 
-"Lorem Ipsum" is a template for a portofolio website or a description website about someone.
+"Lorem Ipsum" is a template for a portofolio website or a description website about someone. [Live demo](https://rollo98.github.io/react-threejs)
 
 ### Prerequisites
 
